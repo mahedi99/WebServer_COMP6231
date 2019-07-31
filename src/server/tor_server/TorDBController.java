@@ -435,13 +435,22 @@ public class TorDBController implements DB {
 //                service = Executors.newFixedThreadPool(2);
 //            }
 
-            String bookResponse = bookEvent(customerID, newEventID, newEventType);
-            if (bookResponse.contains("added")){
-                String cancelResponse = cancelEvent(customerID, oldEventID, oldEventType);
-                if (cancelResponse.contains("successfully")){
-                    response = "Swap Successful!";
-                }
-            }
+//			String bookResponse = bookEvent(customerID, newEventID, newEventType);
+//            if (bookResponse.contains("added")){
+//                String cancelResponse = cancelEvent(customerID, oldEventID, oldEventType);
+//                if (cancelResponse.contains("successfully")){
+//                    response = "Swap Successful!";
+//                }
+//            }
+//            String bookResponse = bookEvent(customerID, newEventID, newEventType);
+			String cancelResponse = cancelEvent(customerID, oldEventID, oldEventType);
+			if (cancelResponse.contains("successfully")){
+//                String cancelResponse = cancelEvent(customerID, oldEventID, oldEventType);
+				String bookResponse = bookEvent(customerID, newEventID, newEventType);
+				if (bookResponse.contains("added")){
+					response = "Swap Successful!";
+				}
+			}
         }
         else {
             response = "Either no capacity or event was not booked!";

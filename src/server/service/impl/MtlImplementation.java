@@ -34,6 +34,9 @@ public class MtlImplementation implements WebInterface {
             case CANCEL_EVENT:
                 response = controller.cancelEvent(model.getClientID(), model.getEventID(), model.getEventType());
                 break;
+            case SWAP_EVENT:
+                response = controller.swapEvent(model.getClientID(), model.getEventID(), model.getEventType(), model.getNewEventID(), model.getNewEventType());
+                break;
         }
         return response;
     }
