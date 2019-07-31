@@ -53,7 +53,7 @@ public class OtwDBController implements DB {
                 } else {
                     EventDetails details = database.get(eventType).get(eventID);
                     details.bookingCapacity = bookingCapacity;
-                    database.get(eventType).put(eventID, eventDetails);
+                    database.get(eventType).put(eventID, details);
                     response = "Event already exists, capacity updated!";
                 }
                 break;
@@ -203,7 +203,7 @@ public class OtwDBController implements DB {
                                     response = customerID + " added to " + eventID + " event.";
                                 }
                                 else {
-                                    response = "Duplicate call for" + eventID + " event";
+                                    response = "Duplicate call for " + eventID + " event";
                                 }
                             }
                             else {
